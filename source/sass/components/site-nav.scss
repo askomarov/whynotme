@@ -1,0 +1,28 @@
+.site-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:not(:last-child) {
+    &::after {
+      content: "";
+      width: 10px;
+      height: 1px;
+      background: rgba(51, 26, 47, 0.5);
+      margin: 0 8px;
+    }
+  }
+}
+
+.site-nav__item-link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(51, 26, 47, 0.5);
+}

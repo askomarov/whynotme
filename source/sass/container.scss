@@ -1,0 +1,12 @@
+.container {
+  box-sizing: border-box;
+  max-width: $max-width;
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (min-width: $width-tablet-h) {
+    padding: 0 40px;
+    min-width: $min-width;
+  }
+}

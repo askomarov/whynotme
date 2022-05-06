@@ -1,0 +1,37 @@
+include ./logo
+
+mixin footer(footerMods)
+  -
+    var footerLinks = [
+      {
+        href: "#",
+        text: "Terms"
+      },
+      {
+        href: "#",
+        text: "Privacy policy"
+      },
+      {
+        href: "#",
+        text: "Pricing"
+      }
+    ]
+
+
+  footer.footer(class=footerMods)
+    .container
+      .footer__container
+        if(currentPage === 0)
+          a.footer__logo.logo
+            +logo()
+        else
+          a.footer__logo.logo(href="main.html", aria-label="Переход на главную")
+            +logo()
+        .footer__links.footer-links
+          a.footer-links__mail.link(href="mailto:support@polymorphia.io") support@polymorphia.io
+
+          ul.footer-links__footer-menu.footer-menu
+            each link, index in footerLinks
+              li.footer-menu__item
+                a.footer-menu__link.link(href=link.href)=link.text
+          p.footer-links__copyright 2021 &copy; All rights reserved

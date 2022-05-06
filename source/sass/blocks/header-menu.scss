@@ -1,0 +1,145 @@
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-menu--closed {
+}
+
+.header-menu__button {
+  display: grid;
+
+  @media (min-width: $width-tablet-h) {
+    display: none;
+  }
+}
+
+.header-menu__list {
+  color: $text-color;
+  transition: all 0.3s ease 0s;
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+
+  @media (min-width: $width-tablet-h) {
+    justify-content: flex-start;
+  }
+}
+.header-menu__item {
+  &:not(:last-child) {
+    @media (min-width: $width-tablet-h) {
+      margin-right: 15px;
+    }
+    @media (min-width: $width-desktop) {
+      margin-right: 27px;
+    }
+  }
+}
+
+.header-menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 35px;
+  padding: 0 20px;
+  @media (min-width: $width-tablet-h) {
+    padding: 0 26px;
+  }
+  @media (min-width: $width-desktop) {
+    font-size: 24px;
+    line-height: 35px;
+    padding: 0 23px;
+  }
+}
+
+.header-menu-sublist {
+}
+
+.header-menu-sublist__item {
+  padding: 10px;
+}
+.header-menu-sublist__item-link {
+}
+.header-menu__link-tel {
+  @media (max-width: $width-tablet-h - 1px) {
+    display: none;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 35px;
+  margin-right: 71px;
+
+  @media (min-width: $width-tablet-h) {
+    margin-right: 68px;
+  }
+
+  @media (min-width: $width-desktop) {
+    font-size: 24px;
+    margin-right: 65px;
+  }
+}
+
+.header-menu__link-tel-icon {
+  flex: 0 0 20px;
+  margin-right: 2px;
+
+  @media (min-width: $width-desktop) {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    margin-right: 10px;
+  }
+}
+
+.header-menu--no-js {
+  .header-menu__button {
+    display: none;
+  }
+}
+
+.header-menu--opened {
+  .header-menu__button {
+    position: relative;
+    z-index: 100;
+    background: transparent;
+  }
+
+  .header-menu__list {
+    @media (max-width: $width-tablet-h - 1px) {
+      z-index: 50;
+      opacity: 1;
+      visibility: visible;
+      padding: 134px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-y: auto;
+      background: #ffffff;
+      flex-direction: column;
+      justify-content: stretch;
+    }
+  }
+}
+
+.header-menu--closed {
+  @media (max-width: $width-tablet-h - 1px) {
+    .header-menu__list {
+      top: 0;
+      left: 0;
+      transition: opacity 0s linear 0s;
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

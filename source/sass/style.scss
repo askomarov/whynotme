@@ -1,0 +1,25 @@
+// ////////////////////////////// //  БАЗОВЫЕ СТИЛИ ///////////////////////////////
+@import "fonts.scss";
+@import "null.scss";
+@import "variables.scss";
+@import "container.scss";
+@import "usefull.scss";
+@import "page.scss";
+
+@import "components/s-btn.scss";
+@import "components/dropdown.scss";
+@import "components/site-nav.scss";
+@import "components/feature-price.scss";
+@import "components/feat-item.scss";
+
+//
+// @import "blocks/";
+// @import "blocks/";
+@import "blocks/main.scss";
+@import "blocks/menu-button.scss";
+@import "blocks/header.scss";
+@import "blocks/header-menu.scss";
+@import "blocks/hero";
+@import "blocks/whywe.scss";
+@import "blocks/features-blocks.scss";
+@import "blocks/footer.scss";

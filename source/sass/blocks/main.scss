@@ -1,0 +1,29 @@
+.main {
+  padding-top: 5px;
+}
+
+.main__site-nav {
+}
+.main__whywe {
+  padding-top: 90px;
+  margin-bottom: 104px;
+
+  @media (min-width: $width-tablet) {
+    padding-top: 5px;
+    margin-bottom: 120px;
+  }
+  @media (min-width: $width-tablet-h) {
+    padding-top: 17px;
+    margin-bottom: 140px;
+  }
+  @media (min-width: $width-desktop) {
+    padding-top: 87px;
+  }
+}
+
+.main__features-block {
+  margin-bottom: 69px;
+  @media (min-width: $width-tablet-h) {
+    margin-bottom: 120px;
+  }
+}

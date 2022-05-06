@@ -1,0 +1,27 @@
+.feature-price {
+  display: flex;
+  align-items: baseline;
+  color: rgba(51, 26, 47, 0.8);
+}
+
+.feature-price__icon {
+  align-self: center;
+  margin-right: 25px;
+}
+
+.feature-price__first-word {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 29px;
+}
+.feature-price__price {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 55px;
+}
+
+.feature-price__currency {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 29px;
+}

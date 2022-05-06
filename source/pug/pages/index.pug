@@ -1,0 +1,29 @@
+extends ../base/layout
+
+block variables
+  - var title = "Список страниц"
+
+block main
+  -
+    var pages = [
+      {
+        name: "Главная — main.html",
+        src: "main.html"
+      },
+      {
+        name: "Профиль пустая — profile.html",
+        src: "profile.html"
+      },
+      {
+        name: "Профиль полная — profile-full.html",
+        src: "profile-full.html"
+      },
+    ]
+
+  main.container.main-index
+    img(src="img/logo.svg" width="174" alt="Логотип проекта")
+    h1 Список страниц
+    ol
+      each page in pages
+        li
+          a(href= page.src)= page.name

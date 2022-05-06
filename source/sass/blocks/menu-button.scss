@@ -1,0 +1,57 @@
+.menu-button {
+  display: grid;
+  justify-content: stretch;
+  gap: 8px;
+  align-items: center;
+  width: 42px;
+  position: relative;
+  background-color: transparent;
+  transition: gap 0.3s ease 0s;
+
+  &::after,
+  &::before {
+    display: block;
+    content: "";
+    width: 42px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $primary-color;
+    transition: width 0.3s ease 0s;
+  }
+  &::after {
+    justify-self: end;
+    width: 32px;
+  }
+}
+.menu-button__icon {
+  width: 42px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: $primary-color;
+}
+
+.menu-button[aria-expanded="true"] {
+  // .menu-button__icon {
+  //   height: 0;
+  //   width: 30px;
+  // }
+  gap: 4px;
+
+  &::after,
+  &::before {
+    // position: absolute;
+    width: 25%;
+  }
+  // &::after,
+  // &::before {
+  //   background: rgba(20, 21, 23, 0.2);
+  // }
+
+  // &::after {
+  //   transform: translate(2px, -4px) rotate(45deg);
+  // }
+
+  // &::before {
+  //   transform: translate(2px, 4px) rotate(-45deg);
+  // }
+}

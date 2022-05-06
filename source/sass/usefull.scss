@@ -1,0 +1,62 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+}
+
+.special-text {
+  color: $primary-color;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.page-title-h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+
+  @media (min-width: $width-tablet) {
+    font-size: 40px;
+    line-height: 64px;
+  }
+  @media (min-width: $width-desktop) {
+    font-size: 48px;
+    line-height: 64px;
+  }
+}
+
+.special-underline {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.special-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  z-index: 2;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  background: linear-gradient(264.91deg, #7c4eab 0.73%, #dd51d4 95.85%);
+
+  @media (min-width: $width-tablet) {
+    bottom: -3px;
+    border-radius: 6px;
+    height: 6px;
+  }
+  @media (min-width: $width-tablet-h) {
+    bottom: -7px;
+  }
+  @media (min-width: $width-desktop) {
+    height: 7px;
+  }
+}

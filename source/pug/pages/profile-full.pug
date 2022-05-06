@@ -1,0 +1,190 @@
+extends ../base/layout
+
+block variables
+  - const title = "Профиль - Polymorphia"
+  - const wrapperMods = ""
+  //- есть хедер на странице true, нет значит - false
+  - const hasHeader = true
+  //- класс модификатор
+  - const headerMods = "header--no-desk-menu"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "profileFull" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+  -
+    var profileTitle = "My names"
+    var profileEmpty = {
+      text: "You don’t have any generated names"
+    }
+    var profileFull = {
+      text: "You have 3 more generations"
+    }
+    var btnGenerate = {
+        text: "generate"
+    }
+    var btnAdd = {
+        text: "add generations"
+    }
+    var checkboxText = "view names only if domain is available"
+
+    var tableHeadres = [
+      {
+        text: "Generation",
+        class: "generations"
+      },
+      {
+        text: "Brand name",
+        class: "brandName"
+      },
+      {
+        text: "Domain",
+        class: "domain"
+      },
+      {
+        text: "Domain cost",
+        class: "domainCost"
+      }
+    ]
+    var mobileTableHeadres = [
+      {
+        text:""
+      },
+      {
+        text: "Name"
+      },
+      {
+        text: "Domain"
+      },
+      {
+        text: "Cost"
+      }
+    ]
+    var domains = [
+      {
+        name:".com",
+        isActive: true
+      },
+      {
+        name:".io",
+        isActive: true
+      },
+      {
+        name:".so",
+        isActive: true
+      },
+      {
+        name:".co",
+        isActive: false
+      },
+      ]
+
+block main
+  main
+    section.profile
+      .profile__decor-animation.decor-animation
+        +icon("icon-decor-big-ball", 139, 139).decor-animation__big-ball
+        +icon("icon-decor-small-ball", 36, 36).decor-animation__small-ball
+        +icon("icon-decor-main-group", 222, 218).decor-animation__main-group
+      .container.profile__container
+        .profile__content.profile__grid-container
+          //- форма с кнопками
+          .profile__form
+            form
+              h1.title.profile__title=profileTitle
+                +icon("icon-plus", 39, 39).profile__title-icon
+              p.profile__text=(currentPage === "profileEmpty" ? profileEmpty.text : profileFull.text)
+              button.profile__form-button.button=btnGenerate.text
+              button.profile__form-button.button=btnAdd.text
+              .profile__checkbox-wrap.main-checkbox
+                input.visually-hidden(type="checkbox", id="full-domain-available", name="full-domain-available" )
+                label(for="full-domain-available")
+                  =checkboxText
+            //- таблица доменов
+          .profile__table-wrap
+            h2.visually-hidden Your generated names
+            .profile__mobile-decor-border
+            p.profile__title.title.profile__title--mobile=profileTitle
+              +icon("icon-plus", 39, 39).profile__title-icon
+            table.profile__domain-table.profile-domain-table
+              tr.profile-domain-table__row.profile-domain-table__row--titles
+                each tHeadTitle in tableHeadres
+                  td.profile-domain-table__head-title(class="profile-domain-table__head-title--"+tHeadTitle.class)=tHeadTitle.text
+              tr.profile-domain-table__row.profile-domain-table__row--titles.profile-domain-table__row--titles-mobile
+                each tMobileHeadTitle in mobileTableHeadres
+                  td.profile-domain-table__head-title.profile-domain-table__head-title--mobile=tMobileHeadTitle.text
+              tr.profile-domain-table__row.profile-domain-table__row--domains
+                td
+                td
+                td.profile-domain-table__domains-wrap
+                  each btn in domains
+                    button.profile-domain-table__domain-btn(type="button" , disabled=btn.isActive ? null : 'disabled')=btn.name
+                td
+              tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row
+                td.domains-main-content-row__col-num
+                  ='02'
+                td.domains-main-content-row__col-name
+                  ='Name'
+                td.domains-main-content-row__col-domains
+                  ='domainname.com'
+                td.domains-main-content-row__col-cost
+                  ='$150'
+              - for (var x = 0; x < 11; x++)
+                tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row
+                  td
+                    =''
+                  td
+                    =''
+                  td
+                    ='domainname.com'
+                  td
+                    ='$150'
+              - for (var x = 0; x < 4; x++)
+                if(x !== 3)
+                  tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row
+                    td
+                      =''
+                    td
+                      =''
+                    td.text-gray
+                      ='domainname.co'
+                    td.text-gray
+                      ='$150'
+                else
+                  tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row.profile-domain-table__row--mb
+                    td
+                      =''
+                    td
+                      =''
+                    td.text-gray
+                      ='domainname.co'
+                    td.text-gray
+                      ='$150'
+              tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row
+                td.domains-main-content-row__col-num
+                  ='01'
+                td.domains-main-content-row__col-name
+                  ='Name'
+                td.domains-main-content-row__col-domains
+                  ='domainname.com'
+                td.domains-main-content-row__col-cost
+                  ='$150'
+              - for (var x = 0; x < 11; x++)
+                tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row
+                  td
+                    =''
+                  td
+                    =''
+                  td
+                    ='domainname.com'
+                  td
+                    ='$150'
+              - for (var x = 0; x < 3; x++)
+                tr.profile-domain-table__row.profile-domain-table__row-main-content.domains-main-content-row
+                  td
+                    =''
+                  td
+                    =''
+                  td.text-gray
+                    ='domainname.co'
+                  td.text-gray
+                    ='$150'

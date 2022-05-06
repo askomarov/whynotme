@@ -1,0 +1,126 @@
+.whywe {
+}
+.whywe__container {
+  max-width: 1075px;
+
+  @media (min-width: $width-desktop) {
+    padding-right: 60px;
+    padding-left: 50px;
+    max-width: 1400px;
+  }
+}
+
+.whywe__title {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 50px;
+
+  @media (min-width: $width-tablet) {
+    margin-bottom: 80px;
+  }
+
+  @media (min-width: $width-tablet-h) {
+    margin-bottom: 85px;
+  }
+
+  @media (min-width: $width-desktop) {
+    max-width: 850px;
+  }
+}
+
+.whywe__item {
+  display: grid;
+  gap: 30px;
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+    @media (min-width: $width-tablet) {
+      margin-bottom: 61px;
+    }
+    @media (min-width: $width-tablet-h) {
+      margin-bottom: 0;
+    }
+  }
+  @media (min-width: $width-tablet) {
+    align-items: center;
+    gap: 40px;
+    grid-template-columns: auto auto;
+  }
+  @media (min-width: $width-tablet-h) {
+    gap: 55px;
+  }
+  @media (min-width: $width-desktop) {
+    gap: 80px;
+  }
+}
+.whywe__item-img-wrap {
+  width: 270px;
+  margin: 0 auto;
+  height: auto;
+  aspect-ratio: 1/1;
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+  }
+  @media (min-width: $width-tablet-h) {
+    width: 358px;
+  }
+  @media (min-width: $width-desktop) {
+    width: 474px;
+  }
+}
+
+.whywe__item-img-wrap--1 {
+  height: 277px;
+  @media (min-width: $width-tablet-h) {
+    width: 352px;
+    height: 362px;
+    margin-right: 24px;
+  }
+
+  @media (min-width: $width-desktop) {
+    width: 456px;
+    height: 469px;
+    margin-right: 0;
+  }
+}
+
+.whywe__item-text {
+  color: $text-color;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+
+  @media (min-width: $width-tablet) {
+    font-size: 20px;
+  }
+
+  @media (min-width: $width-desktop) {
+    font-size: 25px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+
+    @media (min-width: $width-tablet) {
+      margin-bottom: 15px;
+    }
+  }
+}
+.whywe__item--reverse {
+  @media (min-width: $width-tablet) {
+    .whywe__item-img-wrap {
+      order: 2;
+    }
+  }
+  @media (min-width: $width-desktop) {
+    margin-left: 15px;
+    width: calc(100% + 15px);
+  }
+}

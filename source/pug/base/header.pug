@@ -1,0 +1,56 @@
+include ./logo
+
+mixin header(headerMods, currentPage)
+  -
+    var headerLinks = [
+      {
+        href: "main.html",
+        text: "Home",
+        isMobileOnly: true
+      },
+      {
+        href: "#",
+        text: "Pricing"
+      },
+      {
+        href: "#",
+        text: "Demo"
+      },
+      {
+        href: "#",
+        text: "Terms",
+        isMobileOnly: true
+      },
+      {
+        href: "#",
+        text: "Privacy policy",
+        isMobileOnly: true
+      },
+    ]
+  -
+    var profileBackLink ={
+      href: "main.html",
+      text: "back home"
+    }
+
+  header.header(class=headerMods)
+    .header__container.container
+      a.header__back-link.link(href=profileBackLink.href)
+        +icon("icon-back-arrow", 14, 8)
+        ='back home'
+      if(currentPage === 0)
+        a.header__logo.logo
+          +logo()
+      else
+        a.header__logo.logo(href="main.html", aria-label="Переход на главную")
+          +logo()
+      nav.header__menu.header-menu.header-menu--no-js
+        button.header-menu__button.menu-button(type="button", aria-label="Переключатель отображения меню", aria-expanded="false")
+          span.menu-button__icon
+        ul.header-menu__list
+          each link, index in headerLinks
+            li.header-menu__item(class=link.isMobileOnly ? 'header-menu__item--mobile-only' : null)
+              if(currentPage === index)
+                a.header-menu__link.header-menu__link--active.link=link.text
+              else
+                a.header-menu__link.link(href=link.href)=link.text

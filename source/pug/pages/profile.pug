@@ -1,0 +1,49 @@
+extends ../base/layout
+
+block variables
+  - const title = "Профиль - Polymorphia"
+  - const wrapperMods = ""
+  //- есть хедер на странице true, нет значит - false
+  - const hasHeader = true
+  //- класс модификатор
+  - const headerMods = "header--no-desk-menu"
+  - const hasFooter = true
+  - const footerMods = "footer--mobile-hidden"
+  - const currentPage = "profileEmpty" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+  -
+    var profileTitle = "My names"
+    var profileEmpty = {
+      text: "You don’t have any generated names"
+    }
+    var profileFull = {
+      text: "You have 3 more generations"
+    }
+    var btnGenerate = {
+      text: "generate"
+    }
+    var btnAdd = {
+      text: "add generations"
+    }
+    var checkboxText = "view names only if domain is available"
+
+block main
+  main
+    section.profile.profile--empty
+      .profile__decor-animation.decor-animation
+        +icon("icon-decor-big-ball", 139, 139).decor-animation__big-ball
+        +icon("icon-decor-small-ball", 36, 36).decor-animation__small-ball
+        +icon("icon-decor-main-group", 222, 218).decor-animation__main-group
+      .container.profile__container
+        .profile__content.profile__content--empty
+          h1.title.profile__title=profileTitle
+            +icon("icon-plus", 39, 39).profile__title-icon
+          .profile__form
+            form
+              p.profile__text=(currentPage === "profileEmpty" ? profileEmpty.text : profileFull.text)
+              button.profile__form-button.button=btnGenerate.text
+              button.profile__form-button.button=btnAdd.text
+              .profile__checkbox-wrap.main-checkbox
+                input.visually-hidden(type="checkbox", id="domain-available", name="domain-available" )
+                label(for="domain-available")
+                  =checkboxText
